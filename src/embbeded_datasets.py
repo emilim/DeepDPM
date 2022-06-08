@@ -32,7 +32,8 @@ class embbededDataset:
         train_codes = torch.Tensor(torch.load(os.path.join(self.dataset_loc, "train_codes.pt")))
         labels = torch.load(os.path.join(self.dataset_loc, "train_labels.pt"))
         
-        train_labels = torch.Tensor(labels).cpu().float()
+        #train_labels = torch.Tensor(labels).cpu().float()
+        train_labels = torch.Tensor(labels.to(torch.float)).cpu().float()
 
         if self.transform:
             if self.transform == "standard":

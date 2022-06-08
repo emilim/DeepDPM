@@ -48,7 +48,7 @@ class ClusterNetModel(pl.LightningModule):
         """
 
         super().__init__()
-        self.hparams = hparams
+        self.save_hyperparameters(hparams)
         self.K = init_k
         self.n_sub = n_sub
         self.codes_dim = input_dim

@@ -410,15 +410,12 @@ def train_cluster_net():
         logger = DummyLogger()
     else:
         logger = NeptuneLogger(
-                api_key='your_API_token',
-                project_name='your_project_name',
-                experiment_name=args.exp_name,
-                params=vars(args),
-                tags=tags
+                api_key='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI5MGQxOGVhNi00N2JmLTQzOTctODM4Ni0xNDc1NmU0ZTA5MDkifQ==',
+                project='emilim/DeepDPM-test'
             )
 
     if isinstance(logger, NeptuneLogger):
-        if logger.api_key == 'your_API_token':
+        if logger._api_key == 'eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI5MGQxOGVhNi00N2JmLTQzOTctODM4Ni0xNDc1NmU0ZTA5MDkifQ':
             print("No Neptune API token defined!")
             print("Please define Neptune API token or run with the --offline argument.")
             print("Running without logging...")
